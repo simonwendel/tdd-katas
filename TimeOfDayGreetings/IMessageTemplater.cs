@@ -1,4 +1,4 @@
-﻿namespace TimeDependent;
+﻿namespace TimeOfDayGreetings;
 
 public interface IMessageTemplater
 {

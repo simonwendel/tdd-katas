@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBuzz.csproj", "{82E3CCD4-D12D-4EFF-85D5-86D2705AB497}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeDependent", "TimeDependent\TimeDependent.csproj", "{9BF764FA-6DA0-4624-822D-50DA19A74682}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeOfDayGreetings", "TimeOfDayGreetings\TimeOfDayGreetings.csproj", "{9BF764FA-6DA0-4624-822D-50DA19A74682}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@ using AutoFixture.Xunit2;
 using FluentAssertions;
 using Moq;
 
-namespace TimeDependent;
+namespace TimeOfDayGreetings;
 
 public class GreeterTests
 {

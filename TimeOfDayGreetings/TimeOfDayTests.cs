@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 
-namespace TimeDependent;
+namespace TimeOfDayGreetings;
 
 public class TimeOfDayTests
 {

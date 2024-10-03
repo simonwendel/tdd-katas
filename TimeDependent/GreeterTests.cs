@@ -6,13 +6,6 @@ namespace TimeDependent;
 public class GreeterTests
 {
     [Fact]
-    public void Should_Compile()
-    {
-        var greeter = new Greeter(Mock.Of<ITimeTeller>(), Mock.Of<IMessageTemplater>());
-        greeter.Should().NotBeNull();
-    }
-    
-    [Fact]
     public void Ctor_GivenNullTimeTeller_ThrowsArgumentNullException()
     {
         // ReSharper disable once ObjectCreationAsStatement

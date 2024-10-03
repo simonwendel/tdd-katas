@@ -7,4 +7,9 @@ public class Greeter(ITimeTeller timeTeller, IMessageTemplater messageTemplater)
 
     private readonly IMessageTemplater messageTemplater =
         messageTemplater ?? throw new ArgumentNullException(nameof(messageTemplater));
+
+    public void Greet()
+    {
+        timeTeller.GetTimeOfDay();
+    }
 }

@@ -32,4 +32,19 @@ public class GreeterTests
 
         timeTeller.VerifyAll();
     }
+
+    [Fact]
+    public void Greet_WhenTimeOfDayRetrieved_RetrievesGreetingTemplate()
+    {
+        var timeTeller = new Mock<ITimeTeller>();
+        timeTeller.Setup(t => t.GetTimeOfDay()).Returns(TimeOfDay.Morning);
+
+        var messageTemplater = new Mock<IMessageTemplater>();
+        messageTemplater.Setup(m => m.GetGreetingTemplate(TimeOfDay.Morning)).Returns("Good morning!");
+
+        var sut = new Greeter(timeTeller.Object, messageTemplater.Object);
+        sut.Greet();
+
+        messageTemplater.VerifyAll();
+    }
 }

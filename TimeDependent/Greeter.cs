@@ -10,6 +10,7 @@ public class Greeter(ITimeTeller timeTeller, IMessageTemplater messageTemplater)
 
     public void Greet()
     {
-        timeTeller.GetTimeOfDay();
+        var timeOfDay = timeTeller.GetTimeOfDay();
+        messageTemplater.GetGreetingTemplate(timeOfDay);
     }
 }

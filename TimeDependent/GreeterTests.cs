@@ -1,3 +1,4 @@
+using AutoFixture.Xunit2;
 using FluentAssertions;
 using Moq;
 
@@ -12,7 +13,11 @@ public class GreeterTests
     public GreeterTests()
     {
         timeTeller = new Mock<ITimeTeller>();
+        timeTeller.Setup(t => t.GetTimeOfDay()).Returns(TimeOfDay.Morning);
+
         messageTemplater = new Mock<IMessageTemplater>();
+        messageTemplater.Setup(m => m.GetGreetingTemplate(TimeOfDay.Morning)).Returns("Good morning, {0}!");
+
         sut = new Greeter(timeTeller.Object, messageTemplater.Object);
     }
 
@@ -32,20 +37,24 @@ public class GreeterTests
         constructing.Should().Throw<ArgumentNullException>().WithParameterName("messageTemplater");
     }
 
-    [Fact]
-    public void Greet_GivenName_RetrievesTimeOfDay()
+    [Theory, AutoData]
+    public void Greet_GivenName_RetrievesTimeOfDay(string name)
     {
-        timeTeller.Setup(t => t.GetTimeOfDay()).Returns(TimeOfDay.Morning);
-        sut.Greet();
+        sut.Greet(name);
         timeTeller.VerifyAll();
     }
 
-    [Fact]
-    public void Greet_WhenTimeOfDayRetrieved_RetrievesGreetingTemplate()
+    [Theory, AutoData]
+    public void Greet_WhenTimeOfDayRetrieved_RetrievesGreetingTemplate(string name)
     {
-        timeTeller.Setup(t => t.GetTimeOfDay()).Returns(TimeOfDay.Morning);
-        messageTemplater.Setup(m => m.GetGreetingTemplate(TimeOfDay.Morning)).Returns("Good morning!");
-        sut.Greet();
+        sut.Greet(name);
         messageTemplater.VerifyAll();
+    }
+
+    [Fact]
+    public void Greet_GivenName_ReturnsPersonalizedGreeting()
+    {
+        var greeting = sut.Greet("Demerzel");
+        greeting.Should().Be("Good morning, Demerzel!");
     }
 }

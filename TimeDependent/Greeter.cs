@@ -8,9 +8,10 @@ public class Greeter(ITimeTeller timeTeller, IMessageTemplater messageTemplater)
     private readonly IMessageTemplater messageTemplater =
         messageTemplater ?? throw new ArgumentNullException(nameof(messageTemplater));
 
-    public void Greet()
+    public string Greet(string name)
     {
         var timeOfDay = timeTeller.GetTimeOfDay();
-        messageTemplater.GetGreetingTemplate(timeOfDay);
+        var template = messageTemplater.GetGreetingTemplate(timeOfDay);
+        return string.Format(template, name);
     }
 }

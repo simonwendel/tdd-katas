@@ -5,6 +5,17 @@ namespace TimeDependent;
 
 public class GreeterTests
 {
+    private readonly Mock<ITimeTeller> timeTeller;
+    private readonly Mock<IMessageTemplater> messageTemplater;
+    private readonly Greeter sut;
+
+    public GreeterTests()
+    {
+        timeTeller = new Mock<ITimeTeller>();
+        messageTemplater = new Mock<IMessageTemplater>();
+        sut = new Greeter(timeTeller.Object, messageTemplater.Object);
+    }
+
     [Fact]
     public void Ctor_GivenNullTimeTeller_ThrowsArgumentNullException()
     {
@@ -24,27 +35,17 @@ public class GreeterTests
     [Fact]
     public void Greet_GivenName_RetrievesTimeOfDay()
     {
-        var timeTeller = new Mock<ITimeTeller>();
         timeTeller.Setup(t => t.GetTimeOfDay()).Returns(TimeOfDay.Morning);
-
-        var sut = new Greeter(timeTeller.Object, Mock.Of<IMessageTemplater>());
         sut.Greet();
-
         timeTeller.VerifyAll();
     }
 
     [Fact]
     public void Greet_WhenTimeOfDayRetrieved_RetrievesGreetingTemplate()
     {
-        var timeTeller = new Mock<ITimeTeller>();
         timeTeller.Setup(t => t.GetTimeOfDay()).Returns(TimeOfDay.Morning);
-
-        var messageTemplater = new Mock<IMessageTemplater>();
         messageTemplater.Setup(m => m.GetGreetingTemplate(TimeOfDay.Morning)).Returns("Good morning!");
-
-        var sut = new Greeter(timeTeller.Object, messageTemplater.Object);
         sut.Greet();
-
         messageTemplater.VerifyAll();
     }
 }

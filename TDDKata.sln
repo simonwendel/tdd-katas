@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeOfDayGreetings", "TimeOfDayGreetings\TimeOfDayGreetings.csproj", "{9BF764FA-6DA0-4624-822D-50DA19A74682}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexCalculator", "ComplexCalculator\ComplexCalculator.csproj", "{D793BD66-4E82-44F9-877C-6F3893E87B97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{9BF764FA-6DA0-4624-822D-50DA19A74682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF764FA-6DA0-4624-822D-50DA19A74682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF764FA-6DA0-4624-822D-50DA19A74682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D793BD66-4E82-44F9-877C-6F3893E87B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D793BD66-4E82-44F9-877C-6F3893E87B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D793BD66-4E82-44F9-877C-6F3893E87B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D793BD66-4E82-44F9-877C-6F3893E87B97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

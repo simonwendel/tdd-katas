@@ -2,7 +2,7 @@
 
 namespace ComplexCalculator;
 
-public class Complex(double re, double im) : IEquatable<Complex>
+public class ComplexNumber(double re, double im) : IEquatable<ComplexNumber>
 {
     private const int NumberOfDecimals = 7;
     
@@ -19,30 +19,30 @@ public class Complex(double re, double im) : IEquatable<Complex>
 
     public static double Epsilon => Math.Pow(10, -NumberOfDecimals);
 
-    public static Complex operator +(Complex first, Complex second)
+    public static ComplexNumber operator +(ComplexNumber first, ComplexNumber second)
     {
         var re = first.Re + second.Re;
         var im = first.Im + second.Im;
-        return new Complex(re, im);
+        return new ComplexNumber(re, im);
     }
 
-    public static Complex operator -(Complex first, Complex second)
+    public static ComplexNumber operator -(ComplexNumber first, ComplexNumber second)
     {
         var re = first.Re - second.Re;
         var im = first.Im - second.Im;
-        return new Complex(re, im);
+        return new ComplexNumber(re, im);
     }
 
-    public static bool operator ==(Complex? left, Complex? right)
+    public static bool operator ==(ComplexNumber? left, ComplexNumber? right)
     {
         if (left is null) return right is null;
         return left.Equals(right);
     }
 
-    public static bool operator !=(Complex? left, Complex? right)
+    public static bool operator !=(ComplexNumber? left, ComplexNumber? right)
         => !(left == right);
 
-    public bool Equals(Complex? other)
+    public bool Equals(ComplexNumber? other)
     {
         if (other is null)
         {
@@ -61,7 +61,7 @@ public class Complex(double re, double im) : IEquatable<Complex>
     public override bool Equals(object? obj)
     {
         if (obj is null) return false;
-        return obj.GetType() == GetType() && this.Equals((Complex)obj);
+        return obj.GetType() == GetType() && this.Equals((ComplexNumber)obj);
     }
 
     public override int GetHashCode()

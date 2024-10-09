@@ -2,7 +2,7 @@
 
 namespace ComplexCalculator;
 
-public class NumberStack : IEquatable<NumberStack>
+public class NumberStack : IEquatable<NumberStack>, INumberStack
 {
     private readonly Stack<ComplexNumber> stack = new();
 

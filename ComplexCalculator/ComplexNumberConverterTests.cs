@@ -25,8 +25,8 @@ public class ComplexNumberConverterTests
     [InlineData("0+2..0i")]
     [InlineData("2.5ii")]
     [InlineData("ii2.5")]
-    [InlineData($"\r\n")]
-    [InlineData($"\n")]
+    [InlineData("\r\n")]
+    [InlineData("\n")]
     [InlineData("   ")]
     [InlineData("")]
     public void FromString_GivenInvalidStringRepresentationOfNumber_ThrowsException(string number)

@@ -2,11 +2,8 @@
 
 public interface INumberStack
 {
-    void Push(ComplexNumber number);
-
-    ComplexNumber Pop();
-
     int Count { get; }
-
+    void Push(ComplexNumber number);
+    ComplexNumber Pop();
     string ToString();
 }

@@ -13,7 +13,7 @@ public class NumberStackTests
         sut.Push(number);
         sut.Count.Should().Be(1);
     }
-    
+
     [Fact]
     public void Pop_WhenCalled_ReturnsLastPushedNumber()
     {
@@ -23,7 +23,7 @@ public class NumberStackTests
         sut.Push(last);
         sut.Pop().Should().Be(last);
     }
-    
+
     [Fact]
     public void Pop_WhenCalled_RemovesLastPushedNumberFromStack()
     {
@@ -33,7 +33,7 @@ public class NumberStackTests
         _ = sut.Pop();
         sut.Count.Should().Be(1);
     }
-    
+
     [Theory]
     [AutoData]
     public void Push_GivenMultipleNumbers_AddsNumbersToStack(List<ComplexNumber> numbers)
@@ -42,7 +42,7 @@ public class NumberStackTests
         numbers.ForEach(sut.Push);
         sut.Count.Should().Be(numbers.Count);
     }
-    
+
     [Fact]
     public void CountGetter_WhenNewInstance_ShouldReturnZero()
     {
@@ -56,10 +56,10 @@ public class NumberStackTests
     {
         var first = new NumberStack();
         numbers.ForEach(first.Push);
-        
+
         var second = new NumberStack();
         numbers.ForEach(second.Push);
-        
+
         first.Equals(second).Should().BeTrue();
     }
 
@@ -72,7 +72,7 @@ public class NumberStackTests
         first.Equals(first).Should().BeTrue();
 #pragma warning restore CS1718
     }
-    
+
     [Fact]
     public void ToString_WhenNumbersArePushed_ReturnsStringRepresentationOfStack()
     {
@@ -88,13 +88,13 @@ public class NumberStackTests
     {
         var first = new NumberStack();
         numbers.ForEach(first.Push);
-        
+
         var second = new NumberStack();
         numbers.ForEach(n => second.Push(new ComplexNumber(n.Re + 1, n.Im + 1)));
-        
+
         var third = new NumberStack();
         Enumerable.Reverse(numbers).ToList().ForEach(third.Push);
-        
+
         first.Equals(second).Should().BeFalse();
     }
 
@@ -113,7 +113,7 @@ public class NumberStackTests
         var first = new NumberStack();
         first.Equals(null).Should().BeFalse();
     }
-    
+
     [Fact]
     public void GetHashCode_ReturnsFabulousHashCode()
     {

@@ -36,4 +36,6 @@ public class Calculator(INumberStack stack, IComplexNumberConverter converter)
         var complexNumber = converter.FromString(number);
         stack.Push(complexNumber);
     }
+
+    public object Display() => stack.ToString();
 }

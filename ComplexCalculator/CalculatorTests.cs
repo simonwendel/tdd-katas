@@ -1,3 +1,4 @@
+using AutoFixture.Xunit2;
 using FluentAssertions;
 using Moq;
 
@@ -140,5 +141,13 @@ public class CalculatorTests
 
         stack.Verify(s => s.Pop(), Times.Exactly(2));
         stack.Verify(s => s.Push(firstNumber - secondNumber), Times.Once);
+    }
+    
+    [Theory, AutoData]
+    public void Display_WhenCalled_CallsStackToString(string representation)
+    {
+        stack.Setup(s => s.ToString()).Returns(representation);
+        sut.Display().Should().Be(representation);
+        stack.VerifyAll();
     }
 }

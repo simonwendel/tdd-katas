@@ -5,7 +5,8 @@ public class Calculator(INumberStack stack, IComplexNumberConverter converter)
     private readonly IComplexNumberConverter
         converter = converter ?? throw new ArgumentNullException(nameof(converter));
 
-    private readonly INumberStack stack = stack ?? throw new ArgumentNullException(nameof(stack));
+    private readonly INumberStack
+        stack = stack ?? throw new ArgumentNullException(nameof(stack));
 
     public void Add()
     {

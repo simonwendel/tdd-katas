@@ -1,6 +1,5 @@
 ﻿using AutoFixture.Xunit2;
 using FluentAssertions;
-using System.Linq;
 
 namespace ComplexCalculator;
 

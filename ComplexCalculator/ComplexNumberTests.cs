@@ -58,7 +58,6 @@ public class ComplexNumberTests
         sut.ToString().Should().Be("12.5 + 3.5i");
     }
 
-
     [Fact]
     public void EqualsOperator_GivenReAndImPartsEqual_ReturnsTrue()
     {

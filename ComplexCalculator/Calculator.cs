@@ -1,18 +1,39 @@
 ﻿namespace ComplexCalculator;
 
-public class Calculator
+public class Calculator(INumberStack stack, IComplexNumberConverter converter)
 {
-    public ComplexNumber Add(ComplexNumber first, ComplexNumber second)
+    private readonly IComplexNumberConverter
+        converter = converter ?? throw new ArgumentNullException(nameof(converter));
+
+    private readonly INumberStack stack = stack ?? throw new ArgumentNullException(nameof(stack));
+
+    public void Add()
     {
-        var re = first.Re + second.Re;
-        var im = first.Im + second.Im;
-        return new ComplexNumber(re, im);
+        if (stack.Count < 2)
+        {
+            return;
+        }
+
+        var first = stack.Pop();
+        var second = stack.Pop();
+        stack.Push(first + second);
     }
 
-    public ComplexNumber Sub(ComplexNumber first, ComplexNumber second)
+    public void Sub()
     {
-        var re = first.Re - second.Re;
-        var im = first.Im - second.Im;
-        return new ComplexNumber(re, im);
+        if (stack.Count < 2)
+        {
+            return;
+        }
+
+        var first = stack.Pop();
+        var second = stack.Pop();
+        stack.Push(first - second);
+    }
+
+    public void Enter(string number)
+    {
+        var complexNumber = converter.FromString(number);
+        stack.Push(complexNumber);
     }
 }
